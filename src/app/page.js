@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import {
   Globe,
@@ -24,7 +23,6 @@ import ParticleCanvas from "@/components/ParticleCanvas";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageProgressBar from "@/components/PageProgressBar";
 import RippleCard from "@/components/RippleCard";
-import VerificationModal from "@/components/VerificationModal";
 
 /* ─── small helper ─── */
 function IconBox({ children, size = 48 }) {
@@ -36,13 +34,10 @@ function IconBox({ children, size = 48 }) {
 }
 
 export default function HomePage() {
-  const [showModal, setShowModal] = useState(false);
-
   return (
     <>
       <PageProgressBar />
       <Navbar />
-      {showModal && <VerificationModal onClose={() => setShowModal(false)} />}
 
       <main style={{ paddingTop: "72px" }}>
 
@@ -112,25 +107,25 @@ export default function HomePage() {
               and distribution of the Global Pension Policies associated with eligible former GPP members.
             </p>
 
-            {/* CTA buttons */}
-            <div style={{ display: "flex", gap: "14px", flexWrap: "wrap" }}>
-              <button
+            {/* CTA button */}
+            <div>
+              <a
                 id="hero-member-access-btn"
-                onClick={() => setShowModal(true)}
+                href="#member-access"
                 className="btn-gold"
-                style={{ padding: "14px 30px", borderRadius: "9px", fontSize: "13.5px", letterSpacing: "0.06em", display: "inline-flex", alignItems: "center", gap: "8px" }}
+                style={{
+                  padding: "14px 32px",
+                  borderRadius: "9px",
+                  fontSize: "13.5px",
+                  letterSpacing: "0.06em",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  textDecoration: "none",
+                }}
               >
                 <UserRoundCheck size={16} />
                 MEMBER ACCESS
-              </button>
-              <a
-                href="#process"
-                style={{ padding: "14px 30px", borderRadius: "9px", fontSize: "13.5px", letterSpacing: "0.06em", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "8px", color: "#c9a84c", border: "1px solid rgba(201,168,76,0.32)", transition: "all 0.3s ease" }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(201,168,76,0.08)"; e.currentTarget.style.borderColor = "rgba(201,168,76,0.55)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.borderColor = "rgba(201,168,76,0.32)"; }}
-              >
-                <FileText size={16} />
-                LEARN MORE
               </a>
             </div>
           </div>
@@ -185,58 +180,27 @@ export default function HomePage() {
             padding: "90px 24px",
           }}
         >
-          <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "60px", alignItems: "center" }}>
-
-              <ScrollReveal direction="left">
-                <div className="section-badge" style={{ marginBottom: "20px", display: "inline-flex" }}>
-                  <ShieldCheck size={11} strokeWidth={2.5} />
-                  Privacy &amp; Data Protection
-                </div>
-                <h2 style={{ fontFamily: "var(--font-playfair), serif", fontSize: "clamp(1.8rem, 3vw, 2.4rem)", fontWeight: 700, color: "#e8edf5", lineHeight: 1.22, marginBottom: "20px" }}>
-                  Your Privacy is Our <span className="text-gold-gradient">Priority</span>
-                </h2>
-                <p style={{ color: "#8da0bc", fontSize: "0.95rem", lineHeight: 1.8, marginBottom: "24px" }}>
-                  Due to the confidential nature of member information, all member-related communication and the transfer of personal or account information will be conducted through our designated email communication channel.
+          <div style={{ maxWidth: "860px", margin: "0 auto" }}>
+            <ScrollReveal style={{ textAlign: "center" }}>
+              <div className="section-badge" style={{ marginBottom: "20px", display: "inline-flex" }}>
+                <ShieldCheck size={11} strokeWidth={2.5} />
+                Privacy &amp; Data Protection
+              </div>
+              <h2 style={{ fontFamily: "var(--font-playfair), serif", fontSize: "clamp(1.8rem, 3vw, 2.5rem)", fontWeight: 700, color: "#e8edf5", lineHeight: 1.25, marginBottom: "24px" }}>
+                Privacy and <span className="text-gold-gradient">Data Protection</span>
+              </h2>
+              <p style={{ color: "#b0c4de", fontSize: "1.05rem", lineHeight: 1.85, maxWidth: "760px", margin: "0 auto 36px" }}>
+                Due to the confidential nature of member information, all member-related communication and the transfer of personal or account information will be conducted through our designated email communication channel.
+              </p>
+              <div className="notice-box" style={{ maxWidth: "700px", margin: "0 auto", textAlign: "left" }}>
+                <p style={{ fontSize: "0.88rem", color: "#c9a84c", fontWeight: 600, marginBottom: "6px", display: "flex", alignItems: "center", gap: "6px" }}>
+                  <Info size={14} /> Security Reminder
                 </p>
-                <div className="notice-box">
-                  <p style={{ fontSize: "0.88rem", color: "#c9a84c", fontWeight: 600, marginBottom: "6px", display: "flex", alignItems: "center", gap: "6px" }}>
-                    <Info size={14} /> Security Reminder
-                  </p>
-                  <p style={{ fontSize: "0.85rem", color: "#8da0bc", lineHeight: 1.65 }}>
-                    Please ensure that you communicate only through the official email address provided in our correspondence.
-                  </p>
-                </div>
-              </ScrollReveal>
-
-              <ScrollReveal direction="right">
-                <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-                  {[
-                    { icon: <Lock size={16} color="#c9a84c" strokeWidth={1.8} />, label: "Data Encryption", value: "End-to-End" },
-                    { icon: <MailOpen size={16} color="#c9a84c" strokeWidth={1.8} />, label: "Communication Channel", value: "Official Email Only" },
-                    { icon: <BadgeCheck size={16} color="#c9a84c" strokeWidth={1.8} />, label: "Member Verification", value: "Required Before Access" },
-                    { icon: <ShieldCheck size={16} color="#c9a84c" strokeWidth={1.8} />, label: "Information Transfer", value: "Secure & Confidential" },
-                  ].map((item, i) => (
-                    <div
-                      key={i}
-                      className="glass-card"
-                      style={{ padding: "15px 20px", display: "flex", alignItems: "center", gap: "14px", transition: "all 0.3s ease" }}
-                      onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(201,168,76,0.35)"; e.currentTarget.style.transform = "translateX(4px)"; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(201,168,76,0.16)"; e.currentTarget.style.transform = "translateX(0)"; }}
-                    >
-                      <div style={{ width: "38px", height: "38px", borderRadius: "10px", background: "rgba(201,168,76,0.09)", border: "1px solid rgba(201,168,76,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                        {item.icon}
-                      </div>
-                      <div style={{ flex: 1 }}>
-                        <div style={{ fontSize: "10px", color: "#4a6080", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 600 }}>{item.label}</div>
-                        <div style={{ fontSize: "0.92rem", color: "#c9a84c", fontWeight: 600, marginTop: "2px" }}>{item.value}</div>
-                      </div>
-                      <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#4ade80", flexShrink: 0, boxShadow: "0 0 6px rgba(74,222,128,0.5)" }} />
-                    </div>
-                  ))}
-                </div>
-              </ScrollReveal>
-            </div>
+                <p style={{ fontSize: "0.9rem", color: "#8da0bc", lineHeight: 1.7 }}>
+                  For your security, please ensure that you communicate only through the official email address provided in our correspondence.
+                </p>
+              </div>
+            </ScrollReveal>
           </div>
         </section>
 
@@ -284,38 +248,27 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div style={{ background: "rgba(201,168,76,0.05)", border: "1px solid rgba(201,168,76,0.18)", borderRadius: "9px", padding: "12px 16px", textAlign: "center", marginBottom: "18px" }}>
-                <p style={{ fontSize: "12px", color: "#c9a84c", fontWeight: 600, letterSpacing: "0.04em", display: "flex", alignItems: "center", justifyContent: "center", gap: "6px" }}>
-                  <Lock size={13} /> Access Pending Verification
-                </p>
-                <p style={{ fontSize: "11px", color: "#4a6080", marginTop: "4px", lineHeight: 1.5 }}>
-                  Member login will be available after completing email verification
-                </p>
-              </div>
-
-              {/* Clicking this triggers the modal */}
               <button
                 id="login-submit-btn"
-                onClick={() => setShowModal(true)}
+                disabled
+                aria-disabled="true"
                 style={{
                   width: "100%", padding: "14px", borderRadius: "9px",
-                  background: "rgba(201,168,76,0.08)",
-                  border: "1px solid rgba(201,168,76,0.2)",
-                  color: "#c9a84c",
+                  background: "rgba(201,168,76,0.06)",
+                  border: "1px solid rgba(201,168,76,0.18)",
+                  color: "#8da0bc",
                   fontSize: "12.5px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase",
-                  cursor: "pointer",
+                  cursor: "not-allowed",
                   display: "flex", alignItems: "center", justifyContent: "center", gap: "8px",
-                  transition: "all 0.25s ease",
+                  opacity: 0.7,
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(201,168,76,0.14)"; e.currentTarget.style.borderColor = "rgba(201,168,76,0.35)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(201,168,76,0.08)"; e.currentTarget.style.borderColor = "rgba(201,168,76,0.2)"; }}
               >
-                <ShieldCheck size={15} />
-                VIEW VERIFICATION PROCESS
+                <Lock size={14} color="#8da0bc" />
+                MEMBER LOGIN
               </button>
             </div>
 
-            <p style={{ textAlign: "center", color: "#4a6080", fontSize: "11.5px", marginTop: "18px", lineHeight: 1.65 }}>
+            <p style={{ textAlign: "center", color: "#8da0bc", fontSize: "12.5px", marginTop: "20px", lineHeight: 1.7, maxWidth: "420px", margin: "20px auto 0" }}>
               If you have not yet completed the verification process,<br />
               you will not be able to access the member account area.
             </p>

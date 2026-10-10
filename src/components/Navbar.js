@@ -144,75 +144,44 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* ── Right side: status badge + hamburger ── */}
-          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-            {/* Status badge */}
-            <div
-              className="desktop-only"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "7px",
-                padding: "6px 14px",
-                borderRadius: "999px",
-                background: "rgba(201,168,76,0.07)",
-                border: "1px solid rgba(201,168,76,0.2)",
-              }}
-            >
-              <span
-                style={{
-                  width: "7px", height: "7px",
-                  borderRadius: "50%",
-                  background: "#4ade80",
-                  display: "inline-block",
-                  boxShadow: "0 0 6px rgba(74,222,128,0.6)",
-                  animation: "dot-pulse 2s ease-in-out infinite",
-                }}
-              />
-              <span style={{ fontSize: "10.5px", fontWeight: 600, color: "#c9a84c", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-                Settlement Active
-              </span>
-            </div>
-
-            {/* Hamburger */}
-            <button
-              id="hamburger-btn"
-              className="mobile-only"
-              aria-label="Toggle menu"
-              onClick={() => setMenuOpen((v) => !v)}
-              style={{
-                background: "rgba(201,168,76,0.07)",
-                border: "1px solid rgba(201,168,76,0.2)",
-                borderRadius: "8px",
-                width: "40px", height: "40px",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "5px",
-                cursor: "pointer",
-              }}
-            >
-              <span
-                className="hamburger-line"
-                style={{ transform: menuOpen ? "rotate(45deg) translate(5px, 5px)" : "none" }}
-              />
-              <span
-                className="hamburger-line"
-                style={{ opacity: menuOpen ? 0 : 1, transform: menuOpen ? "scaleX(0)" : "none" }}
-              />
-              <span
-                className="hamburger-line"
-                style={{ transform: menuOpen ? "rotate(-45deg) translate(5px, -5px)" : "none" }}
-              />
-            </button>
-          </div>
+          {/* ── Mobile hamburger ── */}
+          <button
+            id="hamburger-btn"
+            className="mobile-only"
+            aria-label="Toggle menu"
+            onClick={() => setMenuOpen((v) => !v)}
+            style={{
+              background: "rgba(201,168,76,0.07)",
+              border: "1px solid rgba(201,168,76,0.2)",
+              borderRadius: "8px",
+              width: "40px", height: "40px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "5px",
+              cursor: "pointer",
+            }}
+          >
+            <span
+              className="hamburger-line"
+              style={{ transform: menuOpen ? "rotate(45deg) translate(5px, 5px)" : "none" }}
+            />
+            <span
+              className="hamburger-line"
+              style={{ opacity: menuOpen ? 0 : 1, transform: menuOpen ? "scaleX(0)" : "none" }}
+            />
+            <span
+              className="hamburger-line"
+              style={{ transform: menuOpen ? "rotate(-45deg) translate(5px, -5px)" : "none" }}
+            />
+          </button>
         </div>
 
         {/* ── Mobile dropdown menu ── */}
         <div
           style={{
-            maxHeight: menuOpen ? "260px" : "0",
+            maxHeight: menuOpen ? "220px" : "0",
             overflow: "hidden",
             transition: "max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
             background: "rgba(6,13,26,0.97)",
@@ -241,10 +210,6 @@ export default function Navbar() {
                 {s.label}
               </a>
             ))}
-            <div style={{ marginTop: "8px", paddingTop: "12px", borderTop: "1px solid rgba(201,168,76,0.1)", display: "flex", alignItems: "center", gap: "7px" }}>
-              <span style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#4ade80", display: "inline-block", boxShadow: "0 0 6px rgba(74,222,128,0.6)" }} />
-              <span style={{ fontSize: "10.5px", fontWeight: 600, color: "#c9a84c", letterSpacing: "0.1em", textTransform: "uppercase" }}>Settlement Active</span>
-            </div>
           </div>
         </div>
       </nav>
