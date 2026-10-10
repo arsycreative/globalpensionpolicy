@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────
-   GLOBALS.CSS  —  GPP Design System
+   GLOBALS.CSS  —  GPP Design System (Dark & Light)
 ───────────────────────────────────────────── */
 @import "tailwindcss";
 
@@ -10,19 +10,137 @@
   --font-serif: var(--font-playfair);
 }
 
-/* ── Tokens ── */
-:root {
+/* ── Dark Theme (Default) ── */
+:root,
+[data-theme="dark"] {
   --background: #060d1a;
   --foreground: #e8edf5;
+  --text-primary: #e8edf5;
+  --text-secondary: #8da0bc;
+  --text-body: #b0c4de;
+  --text-muted: #5e7392;
+
   --gold: #c9a84c;
   --gold-light: #e8c97a;
   --gold-dark: #9a7a30;
+  --gold-gradient: linear-gradient(135deg, #e8c97a 0%, #c9a84c 50%, #9a7a30 100%);
+
   --navy: #060d1a;
   --navy-mid: #0d1e38;
   --navy-light: #152844;
   --slate: #1e3554;
-  --text-muted: #8da0bc;
   --border-subtle: rgba(201, 168, 76, 0.15);
+
+  --nav-bg: rgba(6, 13, 26, 0.88);
+  --nav-bg-scrolled: rgba(6, 13, 26, 0.97);
+  --nav-border: rgba(201, 168, 76, 0.14);
+  --nav-shadow: 0 1px 0 rgba(201, 168, 76, 0.18), 0 4px 24px rgba(0, 0, 0, 0.4);
+
+  --card-bg: rgba(21, 40, 68, 0.45);
+  --card-bg-step: rgba(6, 13, 26, 0.65);
+  --card-border: rgba(201, 168, 76, 0.16);
+  --card-hover-border: rgba(201, 168, 76, 0.38);
+  --card-hover-bg: rgba(201, 168, 76, 0.05);
+  --card-shadow: 0 0 40px rgba(201, 168, 76, 0.08), 0 24px 64px rgba(0, 0, 0, 0.45);
+
+  --section-privacy-bg: rgba(13, 30, 56, 0.28);
+  --section-privacy-border: rgba(201, 168, 76, 0.07);
+
+  --hero-overlay: linear-gradient(135deg, rgba(6, 13, 26, 0.93) 0%, rgba(13, 30, 56, 0.78) 60%, rgba(6, 13, 26, 0.95) 100%);
+  --hero-fade: linear-gradient(to bottom, transparent, #060d1a);
+  --settlement-overlay: linear-gradient(180deg, rgba(6, 13, 26, 0.93) 0%, rgba(6, 13, 26, 0.78) 50%, rgba(6, 13, 26, 0.95) 100%);
+  --settlement-radial: radial-gradient(ellipse at 50% 50%, rgba(201, 168, 76, 0.04) 0%, transparent 70%);
+
+  --notice-banner-bg: linear-gradient(135deg, rgba(21, 40, 68, 0.82) 0%, rgba(13, 30, 56, 0.92) 100%);
+  --notice-banner-border: rgba(201, 168, 76, 0.24);
+
+  --input-bg: rgba(6, 13, 26, 0.8);
+  --input-border: rgba(201, 168, 76, 0.22);
+  --input-text: #e8edf5;
+  --input-disabled-bg: rgba(201, 168, 76, 0.06);
+
+  --notice-box-bg: rgba(201, 168, 76, 0.05);
+  --badge-bg: rgba(201, 168, 76, 0.06);
+  --badge-border: rgba(201, 168, 76, 0.28);
+
+  --icon-box-bg: rgba(201, 168, 76, 0.09);
+  --icon-box-border: rgba(201, 168, 76, 0.2);
+
+  --footer-bg: rgba(6, 13, 26, 0.98);
+  --footer-border: rgba(201, 168, 76, 0.12);
+  --footer-subtext: #4a6080;
+  --footer-copy: #243550;
+
+  --step-num-color: rgba(201, 168, 76, 0.06);
+  --toggle-bg: rgba(201, 168, 76, 0.08);
+  --toggle-border: rgba(201, 168, 76, 0.22);
+  --orb-glow: rgba(201, 168, 76, 0.07);
+}
+
+/* ── Light Theme (Luxury Institutional / Swiss Banking Aesthetic) ── */
+[data-theme="light"] {
+  --background: #f6f8fb;
+  --foreground: #0b1626;
+  --text-primary: #0b1626;
+  --text-secondary: #3b4d66;
+  --text-body: #2d3e56;
+  --text-muted: #62758f;
+
+  --gold: #a8842c;
+  --gold-light: #caa444;
+  --gold-dark: #7a5d12;
+  --gold-gradient: linear-gradient(135deg, #7a5d12 0%, #a8842c 50%, #caa444 100%);
+
+  --navy: #0b1626;
+  --navy-mid: #e9eff7;
+  --navy-light: #ffffff;
+  --slate: #d6e2f0;
+  --border-subtle: rgba(168, 132, 44, 0.16);
+
+  --nav-bg: rgba(246, 248, 251, 0.9);
+  --nav-bg-scrolled: rgba(255, 255, 255, 0.97);
+  --nav-border: rgba(168, 132, 44, 0.18);
+  --nav-shadow: 0 1px 0 rgba(168, 132, 44, 0.15), 0 4px 20px rgba(11, 22, 38, 0.06);
+
+  --card-bg: rgba(255, 255, 255, 0.88);
+  --card-bg-step: rgba(255, 255, 255, 0.92);
+  --card-border: rgba(168, 132, 44, 0.2);
+  --card-hover-border: rgba(168, 132, 44, 0.45);
+  --card-hover-bg: rgba(168, 132, 44, 0.06);
+  --card-shadow: 0 10px 30px rgba(11, 22, 38, 0.06), 0 1px 3px rgba(11, 22, 38, 0.04);
+
+  --section-privacy-bg: rgba(233, 239, 247, 0.55);
+  --section-privacy-border: rgba(168, 132, 44, 0.12);
+
+  --hero-overlay: linear-gradient(135deg, rgba(246, 248, 251, 0.95) 0%, rgba(233, 239, 247, 0.86) 60%, rgba(246, 248, 251, 0.97) 100%);
+  --hero-fade: linear-gradient(to bottom, transparent, #f6f8fb);
+  --settlement-overlay: linear-gradient(180deg, rgba(246, 248, 251, 0.95) 0%, rgba(233, 239, 247, 0.84) 50%, rgba(246, 248, 251, 0.97) 100%);
+  --settlement-radial: radial-gradient(ellipse at 50% 50%, rgba(168, 132, 44, 0.06) 0%, transparent 70%);
+
+  --notice-banner-bg: linear-gradient(135deg, #ffffff 0%, #edf3f9 100%);
+  --notice-banner-border: rgba(168, 132, 44, 0.25);
+
+  --input-bg: #ffffff;
+  --input-border: rgba(168, 132, 44, 0.28);
+  --input-text: #0b1626;
+  --input-disabled-bg: rgba(168, 132, 44, 0.06);
+
+  --notice-box-bg: rgba(168, 132, 44, 0.08);
+  --badge-bg: rgba(168, 132, 44, 0.09);
+  --badge-border: rgba(168, 132, 44, 0.3);
+
+  --icon-box-bg: rgba(168, 132, 44, 0.1);
+  --icon-box-border: rgba(168, 132, 44, 0.24);
+
+  --footer-bg: #07111e;
+  --footer-border: rgba(201, 168, 76, 0.15);
+  --footer-subtext: #8da0bc;
+  --footer-copy: #4a6080;
+
+  --step-num-color: rgba(168, 132, 44, 0.09);
+  --toggle-bg: rgba(168, 132, 44, 0.1);
+  --toggle-border: rgba(168, 132, 44, 0.25);
+  --orb-glow: rgba(168, 132, 44, 0.12);
 }
 
 /* ── Reset ── */
@@ -38,16 +156,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ── Scrollbar ── */
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: var(--navy); }
+::-webkit-scrollbar-track { background: var(--background); }
 ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 3px; }
 
 /* ── Typography ── */
 .text-gold-gradient {
-  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+  background: var(--gold-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -55,11 +174,13 @@ body {
 
 /* ── Cards ── */
 .glass-card {
-  background: rgba(21, 40, 68, 0.45);
+  background: var(--card-bg);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(201, 168, 76, 0.16);
+  border: 1px solid var(--card-border);
   border-radius: 14px;
+  box-shadow: var(--card-shadow);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .gold-glow {
@@ -95,11 +216,6 @@ body {
   100% { transform: scale(4); opacity: 0; }
 }
 
-@keyframes count-up {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
 @keyframes dot-pulse {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0.3; }
@@ -118,9 +234,9 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes orbit {
-  from { transform: rotate(0deg) translateX(140px) rotate(0deg); }
-  to   { transform: rotate(360deg) translateX(140px) rotate(-360deg); }
+@keyframes spin-in {
+  from { transform: rotate(-90deg) scale(0.7); opacity: 0; }
+  to   { transform: rotate(0deg) scale(1); opacity: 1; }
 }
 
 /* ── Button ── */
@@ -128,7 +244,7 @@ body {
   position: relative;
   background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light), var(--gold));
   background-size: 300% 300%;
-  color: var(--navy);
+  color: #060d1a;
   font-weight: 700;
   letter-spacing: 0.06em;
   border: none;
@@ -159,41 +275,43 @@ body {
   align-items: center;
   gap: 7px;
   padding: 5px 14px;
-  border: 1px solid rgba(201, 168, 76, 0.28);
+  border: 1px solid var(--badge-border);
   border-radius: 999px;
   font-size: 10.5px;
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--gold);
-  background: rgba(201, 168, 76, 0.06);
+  background: var(--badge-bg);
+  transition: all 0.3s ease;
 }
 
 /* ── Login inputs ── */
 .login-input {
-  background: rgba(6, 13, 26, 0.8);
-  border: 1px solid rgba(201, 168, 76, 0.22);
-  color: var(--foreground);
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--input-text);
   border-radius: 9px;
   padding: 12px 16px;
   width: 100%;
   font-size: 15px;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.3s, color 0.3s;
   outline: none;
 }
 .login-input:focus {
-  border-color: rgba(201, 168, 76, 0.55);
-  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.07);
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.12);
 }
 .login-input::placeholder { color: var(--text-muted); }
-.login-input:disabled { opacity: 0.45; cursor: not-allowed; }
+.login-input:disabled { opacity: 0.55; cursor: not-allowed; }
 
 /* ── Notice box ── */
 .notice-box {
-  background: rgba(201, 168, 76, 0.05);
+  background: var(--notice-box-bg);
   border-left: 3px solid var(--gold);
   border-radius: 0 9px 9px 0;
   padding: 16px 20px;
+  transition: background-color 0.3s ease;
 }
 
 /* ── Icon box ── */
@@ -204,9 +322,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(201, 168, 76, 0.09);
-  border: 1px solid rgba(201, 168, 76, 0.2);
+  background: var(--icon-box-bg);
+  border: 1px solid var(--icon-box-border);
   flex-shrink: 0;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 /* ── Progress bar (top loader) ── */
@@ -224,6 +343,15 @@ body {
 .ripple-card {
   position: relative;
   overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  box-shadow: var(--card-shadow);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+.ripple-card:hover {
+  border-color: var(--card-hover-border);
+  transform: translateY(-3px);
 }
 .ripple-card .ripple-effect {
   position: absolute;

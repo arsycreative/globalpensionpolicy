@@ -31,10 +31,13 @@ export default function ParticleCanvas() {
     }));
 
     const CONNECT_DIST = 160;
-    const GOLD = "201, 168, 76";
 
     function draw() {
       ctx.clearRect(0, 0, W, H);
+
+      const isLight = document.documentElement.getAttribute("data-theme") === "light";
+      const goldRGB = isLight ? "168, 132, 44" : "201, 168, 76";
+      const baseOpacity = isLight ? 0.28 : 0.18;
 
       // Update positions
       nodes.forEach((n) => {
@@ -51,11 +54,11 @@ export default function ParticleCanvas() {
           const dy = nodes[i].y - nodes[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < CONNECT_DIST) {
-            const opacity = (1 - dist / CONNECT_DIST) * 0.18;
+            const opacity = (1 - dist / CONNECT_DIST) * baseOpacity;
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
-            ctx.strokeStyle = `rgba(${GOLD}, ${opacity})`;
+            ctx.strokeStyle = `rgba(${goldRGB}, ${opacity})`;
             ctx.lineWidth = 0.8;
             ctx.stroke();
           }
@@ -66,7 +69,7 @@ export default function ParticleCanvas() {
       nodes.forEach((n) => {
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${GOLD}, ${n.alpha})`;
+        ctx.fillStyle = `rgba(${goldRGB}, ${n.alpha * (isLight ? 0.85 : 1)})`;
         ctx.fill();
       });
 
