@@ -468,3 +468,23 @@ body {
 @media (min-width: 769px) {
   .mobile-only { display: none !important; }
 }
+
+/* ── Hide Netlify Drawer / HUD / Badge / Collab widget ── */
+iframe[src*="netlify"],
+iframe#netlify-drawer,
+#netlify-hud,
+[id*="netlify-drawer"],
+[data-netlify-drawer],
+[class*="netlify-hud"],
+[class*="netlify-drawer"],
+.netlify-badge {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  width: 0 !important;
+  height: 0 !important;
+}

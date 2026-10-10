@@ -84,7 +84,8 @@ export default function RootLayout({ children }) {
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var s=localStorage.getItem('gpp-theme');var t=s||(window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t);}catch(e){}})()`,
+            __html: `(function(){try{var s=localStorage.getItem('gpp-theme');var t=s||(window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+            (function(){try{var obs=new MutationObserver(function(){var el=document.querySelector('iframe[src*="netlify"], iframe#netlify-drawer, #netlify-hud, [id*="netlify-drawer"], [data-netlify-drawer], [class*="netlify-hud"]');if(el){el.style.display='none';el.remove();}});obs.observe(document.documentElement,{childList:true,subtree:true});}catch(e){}})();`,
           }}
         />
       </head>
