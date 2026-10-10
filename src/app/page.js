@@ -13,7 +13,6 @@ import {
   Coins,
   Info,
   Users,
-  TrendingUp,
   AlarmClockCheck,
   UserRoundCheck,
   SendHorizonal,
@@ -23,7 +22,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ParticleCanvas from "@/components/ParticleCanvas";
 import ScrollReveal from "@/components/ScrollReveal";
-import CountUp from "@/components/CountUp";
 import PageProgressBar from "@/components/PageProgressBar";
 import RippleCard from "@/components/RippleCard";
 import VerificationModal from "@/components/VerificationModal";
@@ -109,31 +107,10 @@ export default function HomePage() {
               Settlement &amp; Distribution Portal
             </h2>
 
-            <p style={{ fontSize: "1.05rem", color: "#b0c4de", maxWidth: "600px", lineHeight: 1.8, marginBottom: "44px" }}>
+            <p style={{ fontSize: "1.05rem", color: "#b0c4de", maxWidth: "600px", lineHeight: 1.8, marginBottom: "36px" }}>
               The GPP program has been completed. The remaining process concerns the settlement
               and distribution of the Global Pension Policies associated with eligible former GPP members.
             </p>
-
-            {/* ── Animated stat counters ── */}
-            <div style={{ display: "flex", gap: "32px", flexWrap: "wrap", marginBottom: "44px" }}>
-              {[
-                { icon: <Users size={15} color="#c9a84c" />, target: 12, suffix: "K+", label: "Former Members", decimals: 0 },
-                { icon: <ShieldCheck size={15} color="#c9a84c" />, target: 100, suffix: "%", label: "Secure Channel", decimals: 0 },
-                { icon: <TrendingUp size={15} color="#c9a84c" />, target: 24, suffix: "/7", label: "Portal Active", decimals: 0 },
-              ].map((stat, i) => (
-                <div key={i} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                  <div style={{ width: "36px", height: "36px", borderRadius: "9px", background: "rgba(201,168,76,0.1)", border: "1px solid rgba(201,168,76,0.22)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    {stat.icon}
-                  </div>
-                  <div>
-                    <div style={{ fontSize: "16px", fontWeight: 800, color: "#e8edf5", lineHeight: 1 }}>
-                      <CountUp target={stat.target} suffix={stat.suffix} decimals={stat.decimals} />
-                    </div>
-                    <div style={{ fontSize: "10px", color: "#4a6080", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 600, marginTop: "2px" }}>{stat.label}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
 
             {/* CTA buttons */}
             <div style={{ display: "flex", gap: "14px", flexWrap: "wrap" }}>
