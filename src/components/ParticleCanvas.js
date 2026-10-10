@@ -36,8 +36,8 @@ export default function ParticleCanvas() {
       ctx.clearRect(0, 0, W, H);
 
       const isLight = document.documentElement.getAttribute("data-theme") === "light";
-      const goldRGB = isLight ? "168, 132, 44" : "201, 168, 76";
-      const baseOpacity = isLight ? 0.28 : 0.18;
+      const goldRGB = isLight ? "166, 124, 30" : "201, 168, 76";
+      const baseOpacity = isLight ? 0.18 : 0.18;
 
       // Update positions
       nodes.forEach((n) => {
@@ -69,7 +69,7 @@ export default function ParticleCanvas() {
       nodes.forEach((n) => {
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${goldRGB}, ${n.alpha * (isLight ? 0.85 : 1)})`;
+        ctx.fillStyle = `rgba(${goldRGB}, ${n.alpha * (isLight ? 0.65 : 1)})`;
         ctx.fill();
       });
 

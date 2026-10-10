@@ -42,7 +42,7 @@ export default function HomePage() {
       <main style={{ paddingTop: "72px" }}>
 
         {/* ══════════════════════════════════════════
-            HERO  —  particle canvas background
+            HERO  —  Theme-adaptive Dual Layer
         ══════════════════════════════════════════ */}
         <section
           style={{
@@ -53,10 +53,32 @@ export default function HomePage() {
             overflow: "hidden",
           }}
         >
-          {/* Static hero image underneath particles */}
+          {/* Dual image background crossfading smoothly between Dark and Light mode */}
           <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
-            <Image src="/hero-bg.jpg" alt="GPP background" fill priority style={{ objectFit: "cover", objectPosition: "center" }} />
-            <div style={{ position: "absolute", inset: 0, background: "var(--hero-overlay)", transition: "background 0.35s ease" }} />
+            {/* Dark mode night financial backdrop */}
+            <div className="hero-bg-layer hero-bg-dark">
+              <Image
+                src="/hero-bg.jpg"
+                alt="GPP Global Headquarters Night"
+                fill
+                priority
+                style={{ objectFit: "cover", objectPosition: "center" }}
+              />
+            </div>
+            {/* Light mode daytime prestigious financial architecture backdrop */}
+            <div className="hero-bg-layer hero-bg-light">
+              <Image
+                src="/hero-bg-light.jpg"
+                alt="GPP Global Headquarters Daylight"
+                fill
+                priority
+                style={{ objectFit: "cover", objectPosition: "center 38%" }}
+              />
+            </div>
+            {/* Adaptive atmospheric overlay */}
+            <div className="hero-overlay" />
+            {/* Security guilloche watermark pattern for light mode */}
+            <div className="hero-watermark-pattern" />
           </div>
 
           {/* Animated particle network */}
@@ -91,6 +113,7 @@ export default function HomePage() {
               <span className="text-gold-gradient">Pension Policy</span>
             </h1>
             <h2
+              className="hero-subtitle"
               style={{
                 fontFamily: "var(--font-playfair), serif",
                 fontSize: "clamp(1rem, 2.2vw, 1.5rem)",
@@ -104,7 +127,10 @@ export default function HomePage() {
               Settlement &amp; Distribution Portal
             </h2>
 
-            <p style={{ fontSize: "1.05rem", color: "var(--text-body)", maxWidth: "600px", lineHeight: 1.8, marginBottom: "36px", transition: "color 0.3s ease" }}>
+            <p
+              className="hero-desc"
+              style={{ fontSize: "1.05rem", color: "var(--text-body)", maxWidth: "600px", lineHeight: 1.85, marginBottom: "36px", transition: "color 0.3s ease" }}
+            >
               The GPP program has been completed. The remaining process concerns the settlement
               and distribution of the Global Pension Policies associated with eligible former GPP members.
             </p>
@@ -116,7 +142,7 @@ export default function HomePage() {
                 href="#member-access"
                 className="btn-gold"
                 style={{
-                  padding: "14px 32px",
+                  padding: "14px 34px",
                   borderRadius: "9px",
                   fontSize: "13.5px",
                   letterSpacing: "0.06em",
