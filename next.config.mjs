@@ -18,19 +18,14 @@ const nextConfig = {
   // Compress responses
   compress: true,
 
-  // Power-ups for production only (Turbopack is dev-only)
-  ...(process.env.NODE_ENV !== "production" && {
-    cacheComponents: true,
-    partialPrefetching: true,
-    turbopack: {
-      rules: {
-        "*.css": {
-          loaders: ["@tailwindcss/turbopack"],
-          as: "*.css",
-        },
+  turbopack: {
+    rules: {
+      "*.css": {
+        loaders: ["@tailwindcss/turbopack"],
+        as: "*.css",
       },
     },
-  }),
+  },
 };
 
 export default nextConfig;
