@@ -294,7 +294,7 @@ export default function HomePage() {
                 }}
               >
                 <Lock size={14} color="var(--text-muted)" />
-                MEMBER LOGIN (DISABLED)
+                MEMBER LOGIN
               </button>
             </div>
 
